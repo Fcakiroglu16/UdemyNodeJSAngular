@@ -90,7 +90,7 @@ exports.update = (req, res) => {
 exports.delete = (req, res) => {
 
     Category.findOneAndDelete({
-        _id = req.params.category_id
+        _id: req.params.category_id
     }, (err, category) => {
 
         if (err) {
