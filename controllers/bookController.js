@@ -50,3 +50,35 @@ exports.getById = (req, res) => {
 
 
 }
+
+exports.create = (req, res) => {
+
+    const {
+        title,
+        author,
+        price,
+        stock,
+        picture,
+        categoryBy
+    } = req.body;
+
+    let book = new Book()
+    book.title = title;
+    book.author = author;
+    book.price = price;
+    book.stock = stock;
+    book.picture = picture;
+    book.categoryBy = categoryBy._id
+
+    book.save((err) => {
+
+        if (err) {
+            return new response(null, err).error500(res);
+        }
+
+        return new response(book, null).created(res);
+
+    })
+
+
+}
