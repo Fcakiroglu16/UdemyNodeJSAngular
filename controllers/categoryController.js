@@ -24,7 +24,14 @@ exports.getById = (req, res) => {
         if (err) {
             return new response().notFound(res);
         }
-        return new response(category, null).success(res);
+        if (category) {
+            return new response(category, null).success(res);
+
+        } else {
+            return new response().notFound(res);
+        }
+
+
 
     })
 
