@@ -29,7 +29,7 @@ exports.getById = (req, res) => {
     })
 
 }
-
+//POST http://localhost/api/category
 exports.create = (req, res) => {
 
 
@@ -47,6 +47,41 @@ exports.create = (req, res) => {
 
 
     })
+
+
+}
+//PUT http://localhost/api/category/8094385093485
+exports.update = (req, res) => {
+
+    Category.findById(req.params.category_id, (err, category) => {
+
+        if (err) {
+            return new response(null, err).notFound(res);
+
+
+        }
+
+        category.name = req.body.name;
+
+        category.save((err) => {
+
+            if (err) {
+                return new response(null, err).error500(res);
+            }
+
+            return new response(category, null).success(res);
+
+
+        })
+
+
+
+
+    })
+
+
+
+
 
 
 }
