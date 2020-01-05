@@ -22,7 +22,7 @@ exports.getById = (req, res) => {
     Category.findById(req.params.category_id, (err, category) => {
 
         if (err) {
-            return new response(null, err).notFound(res);
+            return new response().notFound(res);
         }
         return new response(category, null).success(res);
 
@@ -56,7 +56,7 @@ exports.update = (req, res) => {
     Category.findById(req.params.category_id, (err, category) => {
 
         if (err) {
-            return new response(null, err).notFound(res);
+            return new response().notFound(res);
 
 
         }
@@ -80,6 +80,31 @@ exports.update = (req, res) => {
     })
 
 
+
+
+
+
+}
+
+//DELETE http://localhost/api/category/8094385093485
+exports.delete = (req, res) => {
+
+    Category.findOneAndDelete({
+        _id = req.params.category_id
+    }, (err, category) => {
+
+        if (err) {
+            return new response(null, err).error500(res);
+        }
+
+        if (!category) {
+            return new response().notFound(res);
+        }
+
+        return new response(category, null).success(res);
+
+
+    })
 
 
 
