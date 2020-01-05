@@ -12,7 +12,7 @@ var categorySchema = new schema({
     created: {
         type: Date,
         default: () => {
-            return new Date("category", schema);
+            return new Date();
         }
     }
 
@@ -21,4 +21,4 @@ var categorySchema = new schema({
 
 })
 
-module.exports = mongoose.model()
+module.exports = mongoose.model("category", schema)
