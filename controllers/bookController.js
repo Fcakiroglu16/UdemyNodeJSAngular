@@ -32,9 +32,9 @@ exports.getById = (req, res) => {
         }
 
         if (book) {
-            new response(book, null).success(res);
+            return new response(book, null).success(res);
         } else {
-            new response().notFound(res);
+            return new response().notFound(res);
         }
 
 
@@ -79,6 +79,55 @@ exports.create = (req, res) => {
         return new response(book, null).created(res);
 
     })
+
+
+}
+// PUT http://localhost/api/book/23848923840
+exports.update = (req, res) => {
+
+    Book.findById(req.params.book_id, (err, book) => {
+
+        if (err) {
+            return new response(null, err).error500(res);
+        }
+        if (!book) {
+            return new response().notFound(res);
+        }
+
+        const {
+            title,
+            author,
+            price,
+            stock,
+            picture,
+            categoryBy
+        } = req.body;
+
+        book.title = title;
+        book.author = author;
+        book.price = price;
+        book.stock = stock;
+        book.picture = picture;
+        book.categoryBy = categoryBy._id;
+
+        book.save((err) => {
+            if (err) {
+                return new response(null, err).error500(res);
+            }
+
+            return new response(book, null).success(res);
+
+        })
+
+
+
+
+
+    })
+
+
+
+
 
 
 }
