@@ -11,11 +11,11 @@ var bookSchema = mongoose.Schema({
         require: true
     },
     price: {
-        type: number,
+        type: Number,
         require: true
     },
     stock: {
-        type: number,
+        type: Number,
         require: true
     },
     created: {
@@ -24,10 +24,12 @@ var bookSchema = mongoose.Schema({
             return new Date()
         }
     },
+
     categoryBy: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "category"
     }
+
 
 })
 
