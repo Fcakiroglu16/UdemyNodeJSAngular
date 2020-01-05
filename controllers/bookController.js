@@ -131,3 +131,34 @@ exports.update = (req, res) => {
 
 
 }
+
+
+exports.delete = (req, res) => {
+
+    let _id = req.params.book_id;
+
+
+    Book.findOneAndDelete({
+        _id: _id
+    }, (err, book) => {
+
+
+        if (err) {
+            return new response(null, err).error500(res);
+        }
+        if (!book) {
+            return new response().notFound(res);
+        }
+
+        return new response(book, null).success(res);
+
+
+
+    })
+
+
+
+
+
+
+}
