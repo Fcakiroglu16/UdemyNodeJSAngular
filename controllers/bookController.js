@@ -50,6 +50,34 @@ exports.getById = (req, res) => {
 
 
 }
+exports.listByCategoryId = (req, res) => {
+
+    let _id = req.params.category_id;
+
+    Book.find({
+        categoryBy: _id
+    }).populate("categoryBy").exec((err, books) => {
+
+        if (err) {
+            return new response(null, err).error500(res);
+        }
+        return new response(books, null).success(res);
+
+
+
+
+    })
+
+
+
+
+
+}
+
+
+
+
+
 
 exports.create = (req, res) => {
 

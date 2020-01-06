@@ -9,5 +9,6 @@ router.route("/category/:category_id").put(categoryController.update).delete(cat
 router.route("/book").get(bookController.list).post(bookController.create);
 router.route("/book/:book_id").get(bookController.getById).put(bookController.update).delete(bookController.delete);
 
+router.route("/books/:category_id").get(bookController.listByCategoryId);
 
 module.exports = router;

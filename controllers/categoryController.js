@@ -22,7 +22,7 @@ exports.getById = (req, res) => {
     Category.findById(req.params.category_id, (err, category) => {
 
         if (err) {
-            return new response().notFound(res);
+            return new response().error500(res);
         }
         if (category) {
             return new response(category, null).success(res);
