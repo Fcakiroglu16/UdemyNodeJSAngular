@@ -1,7 +1,10 @@
-Category = require("../models/category.model");
+const Category = require("../models/category.model");
 
-response = require("../response");
+const response = require("../response");
 
+const {
+    validationResult
+} = require("express-validator");
 //GET http://localhost/api/category
 exports.list = (req, res) => {
 
@@ -38,6 +41,14 @@ exports.getById = (req, res) => {
 }
 //POST http://localhost/api/category
 exports.create = (req, res) => {
+
+    let errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+        return new response(null, errors.array()).error400(res);
+    }
+
+
 
 
     var category = new Category();
