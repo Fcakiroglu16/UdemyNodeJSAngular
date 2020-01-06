@@ -9,7 +9,7 @@ const {
 //http://localhost/api/category
 router.route("/category").get(categoryController.list).post([check("name").notEmpty().withMessage("name alanı boş olamaz")], categoryController.create);
 //PUT http://localhost/api/category/234324234
-router.route("/category/:category_id").put(categoryController.update).delete(categoryController.delete).get(categoryController.getById);
+router.route("/category/:category_id").put([check("name").notEmpty().withMessage("name alanı boş olamaz")], categoryController.update).delete(categoryController.delete).get(categoryController.getById);
 
 router.route("/book").get(bookController.list).post(bookController.create);
 router.route("/book/:book_id").get(bookController.getById).put(bookController.update).delete(bookController.delete);

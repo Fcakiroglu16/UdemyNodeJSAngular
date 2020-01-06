@@ -71,6 +71,12 @@ exports.create = (req, res) => {
 //PUT http://localhost/api/category/8094385093485
 exports.update = (req, res) => {
 
+    let errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+        return new response(null, errors.array()).error400(res);
+    }
+
     Category.findById(req.params.category_id, (err, category) => {
 
         if (err) {
