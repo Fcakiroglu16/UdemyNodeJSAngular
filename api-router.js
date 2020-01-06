@@ -30,4 +30,9 @@ router.route("/book/:book_id").get(bookController.getById).put([bookValidation],
 
 router.route("/books/:category_id").get(bookController.listByCategoryId);
 
+
+
+router.route("/book/saveImage").post(bookController.upload.single("picture"), bookController.saveImage)
+
+
 module.exports = router;

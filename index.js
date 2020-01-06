@@ -10,6 +10,7 @@ let dbcon = process.env.cloud_mongodb_con;
 
 let app = new express();
 app.use(cors());
+app.use(express.static("uploads"));
 app.use(bodyParser.urlencoded({
     extended: true
 }))
