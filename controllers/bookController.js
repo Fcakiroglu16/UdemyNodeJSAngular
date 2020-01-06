@@ -1,6 +1,8 @@
-Book = require("../models/book.model");
-response = require("../response");
-
+const Book = require("../models/book.model");
+const response = require("../response");
+const {
+    validationResult
+} = require("express-validator");
 
 
 exports.list = (req, res) => {
@@ -80,7 +82,11 @@ exports.listByCategoryId = (req, res) => {
 
 
 exports.create = (req, res) => {
+    let errors = validationResult(req);
 
+    if (!errors.isEmpty()) {
+        return new response(null, errors.array()).error400(res);
+    }
     const {
         title,
         author,
@@ -112,6 +118,14 @@ exports.create = (req, res) => {
 }
 // PUT http://localhost/api/book/23848923840
 exports.update = (req, res) => {
+
+
+    let errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+        return new response(null, errors.array()).error400(res);
+    }
+
 
     Book.findById(req.params.book_id, (err, book) => {
 
