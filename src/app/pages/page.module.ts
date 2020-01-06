@@ -11,6 +11,7 @@ import { MainLayoutComponent } from "../layouts/main-layout/main-layout.componen
 import { HomeComponent } from "./home/home.component";
 import { HeaderComponent } from "../nav/header/header.component";
 import { AdminHomeComponent } from "./admin-home/admin-home.component";
+import { AdminCategoryNeweditComponent } from "./admin-category-newedit/admin-category-newedit.component";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AdminHomeComponent } from "./admin-home/admin-home.component";
     AdminLayoutComponent,
     HomeComponent,
     HeaderComponent,
-    AdminHomeComponent
+    AdminHomeComponent,
+    AdminCategoryNeweditComponent
   ],
   imports: [
     CommonModule,
