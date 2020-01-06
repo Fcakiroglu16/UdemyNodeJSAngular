@@ -3,7 +3,11 @@ import { CommonModule } from "@angular/common";
 import { AppRoutingModule } from "../app-routing.module";
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { HttpClientModule } from "@angular/common/http";
 import { MaterialModule } from "../modules/material.module";
+
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
+
 //layouts
 import { AdminLayoutComponent } from "../layouts/admin-layout/admin-layout.component";
 import { MainLayoutComponent } from "../layouts/main-layout/main-layout.component";
@@ -27,7 +31,10 @@ import { AdminCategoryNeweditComponent } from "./admin-category-newedit/admin-ca
     AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class PageModule {}
