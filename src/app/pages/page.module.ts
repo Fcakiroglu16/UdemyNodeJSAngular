@@ -17,6 +17,7 @@ import { HeaderComponent } from "../nav/header/header.component";
 import { AdminHomeComponent } from "./admin-home/admin-home.component";
 import { AdminCategoryNeweditComponent } from "./admin-category-newedit/admin-category-newedit.component";
 import { AdminCategoryListComponent } from './admin-category-list/admin-category-list.component';
+import { AdminBookNeweditComponent } from './admin-book-newedit/admin-book-newedit.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AdminCategoryListComponent } from './admin-category-list/admin-category
     HeaderComponent,
     AdminHomeComponent,
     AdminCategoryNeweditComponent,
-    AdminCategoryListComponent
+    AdminCategoryListComponent,
+    AdminBookNeweditComponent
   ],
   imports: [
     CommonModule,
