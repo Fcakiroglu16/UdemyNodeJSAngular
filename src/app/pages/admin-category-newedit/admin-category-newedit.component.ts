@@ -29,6 +29,17 @@ export class AdminCategoryNeweditComponent implements OnInit {
       this.title = "Kategori ekle";
       this.btnText = "Ekle";
       this.type = "add";
+    } else {
+      this.title = "Kategori Güncelleme";
+      this.btnText = "Güncelle";
+      this.type = "update";
+      this.categoryService
+        .getCategoryById(this.categoryId)
+        .subscribe(result => {
+          this.category = result;
+
+          this.categoryForm.controls.name.setValue(this.category.name);
+        });
     }
 
     this.categoryForm = new FormGroup({
@@ -45,6 +56,11 @@ export class AdminCategoryNeweditComponent implements OnInit {
             this.router.navigateByUrl("/admin");
           });
       } else {
+        this.categoryService
+          .updateCategory(this.categoryId, this.categoryForm.value)
+          .subscribe(result => {
+            this.router.navigateByUrl("/admin");
+          });
       }
     }
   }

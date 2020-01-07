@@ -27,4 +27,18 @@ export class AdminCategoryListComponent implements OnInit {
       this.datasource.paginator = this.paginator;
     });
   }
+
+  delete(categoryId: string) {
+    this.categoryService.deleteCategory(categoryId).subscribe(result => {
+      if ((result.status = "success")) {
+        let category = this.categories.filter(x => x._id == categoryId)[0];
+
+        let index = this.categories.indexOf(category);
+        this.categories.splice(index, 1);
+        this.datasource = new MatTableDataSource<Category>(this.categories);
+      } else {
+        alert("silme işlemi sırasında bir hata meydana geldi. ");
+      }
+    });
+  }
 }

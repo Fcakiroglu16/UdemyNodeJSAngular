@@ -15,7 +15,23 @@
 
   <ng-container matColumnDef="action">
     <th mat-header-cell *matHeaderCellDef>İşlemler</th>
-    <td mat-cell *matCellDef="let category"></td>
+    <td mat-cell *matCellDef="let category">
+      <a
+        mat-raised-button
+        color="primary"
+        [routerLink]="['/admin/category', category._id]"
+      >
+        <mat-icon>update</mat-icon> güncelle
+      </a>
+      <button
+        (click)="delete(category._id)"
+        class="ml-3"
+        mat-raised-button
+        color="warn"
+      >
+        <mat-icon>delete</mat-icon> sil
+      </button>
+    </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
