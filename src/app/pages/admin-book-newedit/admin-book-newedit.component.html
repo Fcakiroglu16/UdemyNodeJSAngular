@@ -1,1 +1,47 @@
-<p>admin-book-newedit works!</p>
+<div class="row">
+  <div class="col-md-8 offset-2">
+    <h2>{{ title }}</h2>
+    <form class="form-container" (ngSubmit)="onSubmit()" [formGroup]="bookForm">
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          placeholder="Kategori seç"
+          formControlName="categoryBy"
+          [matAutocomplete]="auto"
+        />
+
+        <mat-autocomplete
+          #auto="matAutocomplete"
+          [displayWith]="displayCategoryName"
+        >
+          <mat-option *ngFor="let item of categories" [value]="item">
+            {{ item.name }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+      <div>
+        <input type="file" (change)="upload($event)" />
+      </div>
+
+      <mat-form-field>
+        <input matInput formControlName="title" placeholder="başlık" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput formControlName="author" placeholder="yazar" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput formControlName="price" placeholder="fiyat" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput formControlName="stock" placeholder="stok" />
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit" class="mt-2">
+        {{ btnText }}
+      </button>
+    </form>
+  </div>
+</div>

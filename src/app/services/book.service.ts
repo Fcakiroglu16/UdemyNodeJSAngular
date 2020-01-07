@@ -10,6 +10,7 @@ export class BookService {
   constructor(private httpClient: HttpClient) {}
 
   addBook(book: Book) {
+    console.log(book);
     return this.httpClient.post<any>(this.apiUrl, book);
   }
 

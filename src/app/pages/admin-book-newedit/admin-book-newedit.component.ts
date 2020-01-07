@@ -55,18 +55,25 @@ export class AdminBookNeweditComponent implements OnInit {
       categoryBy: new FormControl("")
     });
   }
+
+  displayCategoryName(category) {
+    console.log(category);
+    if (category) {
+      return category.name;
+    }
+    return null;
+  }
+
   onSubmit() {
     if (this.bookForm.valid) {
       if (this.type == "add") {
         this.bookService
           .saveBookImage(this.formData)
           .pipe(
-            map(
-              result => {
-                this.bookForm.controls.picture.setValue(result.url);
-              },
-              mergeMap(() => this.bookService.addBook(this.bookForm.value))
-            )
+            map(result => {
+              this.bookForm.controls.picture.setValue(result.url);
+            }),
+            mergeMap(() => this.bookService.addBook(this.bookForm.value))
           )
           .subscribe(result => {
             this.router.navigateByUrl("/admin");
