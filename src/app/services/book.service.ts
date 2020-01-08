@@ -21,6 +21,12 @@ export class BookService {
       .pipe(map(result => result.data));
   }
 
+  getBooksByCategoryId(categoryId: string) {
+    return this.httpClient
+      .get<any>(`${environment.baseUrl}/books/${categoryId}`)
+      .pipe(map(result => result.data));
+  }
+
   addBook(book: Book) {
     console.log(book);
     return this.httpClient.post<any>(this.apiUrl, book);

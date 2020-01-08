@@ -17,6 +17,10 @@ const routes: Routes = [
       {
         path: "",
         component: HomeComponent
+      },
+      {
+        path: "kategori/:id",
+        component: HomeComponent
       }
     ]
   },
