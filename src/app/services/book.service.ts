@@ -15,10 +15,19 @@ export class BookService {
       .get<any>(this.apiUrl)
       .pipe(map(result => result.data));
   }
+  getBookById(id: string) {
+    return this.httpClient
+      .get<any>(`${this.apiUrl}/${id}`)
+      .pipe(map(result => result.data));
+  }
 
   addBook(book: Book) {
     console.log(book);
     return this.httpClient.post<any>(this.apiUrl, book);
+  }
+
+  updateBook(bookId: string, book: Book) {
+    return this.httpClient.put<any>(`${this.apiUrl}/${bookId}`, book);
   }
 
   saveBookImage(image) {
