@@ -27,6 +27,12 @@ export class AdminBookNeweditComponent implements OnInit {
   type: string;
   categories: Category[];
 
+  get category() {
+    return this.bookForm.get("categoryBy");
+  }
+  get pictureFile() {
+    return this.bookForm.get("pictureFile");
+  }
   upload(files) {
     let fileData = files.target.files[0];
     this.formData = new FormData();
@@ -65,7 +71,8 @@ export class AdminBookNeweditComponent implements OnInit {
       price: new FormControl("", Validators.required),
       stock: new FormControl("", Validators.required),
       picture: new FormControl(""),
-      categoryBy: new FormControl("")
+      categoryBy: new FormControl("", Validators.required),
+      pictureFile: new FormControl("", Validators.required)
     });
   }
 
