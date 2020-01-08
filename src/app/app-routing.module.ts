@@ -6,6 +6,7 @@ import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.compon
 import { AdminHomeComponent } from "./pages/admin-home/admin-home.component";
 import { AdminCategoryNeweditComponent } from "./pages/admin-category-newedit/admin-category-newedit.component";
 import { AdminBookNeweditComponent } from "./pages/admin-book-newedit/admin-book-newedit.component";
+import { BookComponent } from "./pages/book/book.component";
 
 //http://localhost/
 
@@ -21,6 +22,10 @@ const routes: Routes = [
       {
         path: "kategori/:id",
         component: HomeComponent
+      },
+      {
+        path: "book/:id",
+        component: BookComponent
       }
     ]
   },

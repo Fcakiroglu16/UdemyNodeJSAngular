@@ -31,3 +31,14 @@ body {
   width: 230px;
   height: 350px;
 }
+
+.book-detail-text {
+
+  color: red !important;
+  margin-right: 5px;
+  ;
+}
+
+.active-link {
+  color: red !important;
+}

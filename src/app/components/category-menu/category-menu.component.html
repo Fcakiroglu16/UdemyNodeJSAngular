@@ -9,6 +9,8 @@
         *ngFor="let category of categories"
         mat-list-item
         [routerLink]="['/kategori', category._id]"
+        routerLinkActive="active-link"
+        [routerLinkActiveOptions]="{ exact: true }"
       >
         <mat-icon>chevron_right</mat-icon> {{ category.name }}
       </a>
