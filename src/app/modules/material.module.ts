@@ -9,7 +9,8 @@ import {
   MatPaginatorModule,
   MatTableModule,
   MatIconModule,
-  MatAutocompleteModule
+  MatAutocompleteModule,
+  MatCardModule
 } from "@angular/material";
 
 @NgModule({
@@ -24,7 +25,8 @@ import {
     MatPaginatorModule,
     MatTableModule,
     MatIconModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatCardModule
   ],
   exports: [
     MatToolbarModule,
@@ -35,7 +37,8 @@ import {
     MatPaginatorModule,
     MatTableModule,
     MatIconModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatCardModule
   ]
 })
 export class MaterialModule {}
