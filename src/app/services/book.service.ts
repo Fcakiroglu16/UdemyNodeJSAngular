@@ -29,6 +29,9 @@ export class BookService {
   updateBook(bookId: string, book: Book) {
     return this.httpClient.put<any>(`${this.apiUrl}/${bookId}`, book);
   }
+  deleteBook(bookId: string) {
+    return this.httpClient.delete<any>(`${this.apiUrl}/${bookId}`);
+  }
 
   saveBookImage(image) {
     return this.httpClient.post<any>(`${this.apiUrl}/saveImage`, image);
