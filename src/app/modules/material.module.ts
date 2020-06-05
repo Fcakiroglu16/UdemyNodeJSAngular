@@ -1,18 +1,19 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import {
-  MatToolbarModule,
-  MatButtonModule,
-  MatTabsModule,
-  MatFormFieldModule,
-  MatInputModule,
-  MatPaginatorModule,
-  MatTableModule,
-  MatIconModule,
-  MatAutocompleteModule,
-  MatCardModule,
-  MatListModule
-} from "@angular/material";
+
+import { MatToolbarModule } from "@angular/material/toolbar";
+
+import { MatButtonModule } from "@angular/material/button";
+import { MatTabsModule } from "@angular/material/tabs";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatInputModule } from "@angular/material/input";
+
+import { MatPaginatorModule } from "@angular/material/paginator";
+import { MatTableModule } from "@angular/material/table";
+import { MatIconModule } from "@angular/material/icon";
+import { MatAutocompleteModule } from "@angular/material/autocomplete";
+import { MatCardModule } from "@angular/material/card";
+import { MatListModule } from "@angular/material/list";
 
 @NgModule({
   declarations: [],
@@ -28,7 +29,7 @@ import {
     MatIconModule,
     MatAutocompleteModule,
     MatCardModule,
-    MatListModule
+    MatListModule,
   ],
   exports: [
     MatToolbarModule,
@@ -41,7 +42,7 @@ import {
     MatIconModule,
     MatAutocompleteModule,
     MatCardModule,
-    MatListModule
-  ]
+    MatListModule,
+  ],
 })
 export class MaterialModule {}

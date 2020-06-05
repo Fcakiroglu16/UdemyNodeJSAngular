@@ -1,12 +1,14 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { BookService } from "src/app/services/book.service";
 import { Book } from "src/app/models/book";
-import { MatTableDataSource, MatPaginator } from "@angular/material";
+
+import { MatPaginator } from "@angular/material/paginator";
+import { MatTableDataSource } from "@angular/material/table";
 
 @Component({
   selector: "app-admin-book-list",
   templateUrl: "./admin-book-list.component.html",
-  styleUrls: ["./admin-book-list.component.css"]
+  styleUrls: ["./admin-book-list.component.css"],
 })
 export class AdminBookListComponent implements OnInit {
   constructor(private bookService: BookService) {}
@@ -20,11 +22,11 @@ export class AdminBookListComponent implements OnInit {
     "price",
     "stock",
     "categoryName",
-    "action"
+    "action",
   ];
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   ngOnInit() {
-    this.bookService.getBooks().subscribe(result => {
+    this.bookService.getBooks().subscribe((result) => {
       this.books = result;
       this.books.forEach((book, index) => {
         this.books[index]["no"] = index + 1;
@@ -36,9 +38,9 @@ export class AdminBookListComponent implements OnInit {
   }
 
   delete(bookId: string) {
-    this.bookService.deleteBook(bookId).subscribe(result => {
+    this.bookService.deleteBook(bookId).subscribe((result) => {
       if ((result.status = "success")) {
-        let book = this.books.filter(x => x._id == bookId)[0];
+        let book = this.books.filter((x) => x._id == bookId)[0];
 
         let index = this.books.indexOf(book);
 
