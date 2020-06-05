@@ -14,6 +14,11 @@ var bookSchema = mongoose.Schema({
         type: Number,
         require: true
     },
+    picture: {
+        type: String,
+        require: true
+    },
+
     stock: {
         type: Number,
         require: true

@@ -1,6 +1,6 @@
 const Category = require("../models/category.model");
 
-const response = require("../response");
+const response = require("../response")
 
 const {
     validationResult

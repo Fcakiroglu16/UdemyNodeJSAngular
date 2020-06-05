@@ -91,7 +91,7 @@ exports.create = (req, res) => {
         picture,
         categoryBy
     } = req.body;
-
+    console.log(picture);
     let book = new Book()
     book.title = title;
     book.author = author;
